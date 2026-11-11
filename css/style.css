@@ -117,7 +117,7 @@ p.lead{font-size:1.12rem;color:var(--muted);max-width:64ch}
 
 /* ---------- Hero beranda ---------- */
 .hero{
-  position:relative;color:#fff;overflow:hidden;
+  position:relative;color:#fff;overflow:visible;
   background:linear-gradient(135deg,var(--green-950) 0%,var(--green-800) 55%,var(--green-700) 100%);
 }
 .hero::before{
