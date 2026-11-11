@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" role="img" aria-label="Ilustrasi supervisi akademik di kelas">
+  <rect width="1200" height="800" fill="#f7f4ec"/>
+  <rect x="0" y="0" width="1200" height="140" fill="#14563f"/>
+  <g fill="#e6b34e"><circle cx="1050" cy="70" r="34"/></g>
+  <g stroke="#f7f4ec" stroke-width="5" stroke-linecap="round">
+    <line x1="1050" y1="24" x2="1050" y2="16"/>
+    <line x1="1014" y1="34" x2="1009" y2="27"/>
+    <line x1="1086" y1="34" x2="1091" y2="27"/>
+  </g>
+  <!-- board -->
+  <rect x="120" y="220" width="520" height="260" rx="14" fill="#ffffff" stroke="#c9c2ab" stroke-width="4"/>
+  <rect x="120" y="220" width="520" height="44" rx="14" fill="#17694d"/>
+  <text x="150" y="251" font-family="Arial" font-size="24" font-weight="bold" fill="#f7f4ec">SUPERVISI AKADEMIK</text>
+  <g stroke="#d9a13b" stroke-width="6" stroke-linecap="round">
+    <line x1="160" y1="310" x2="430" y2="310"/>
+    <line x1="160" y1="352" x2="540" y2="352"/>
+    <line x1="160" y1="394" x2="470" y2="394"/>
+    <line x1="160" y1="436" x2="360" y2="436"/>
+  </g>
+  <!-- observer -->
+  <circle cx="810" cy="300" r="52" fill="#0b3d2e"/>
+  <path d="M 810 230 a 52 52 0 0 1 52 52 l -104 0 a 52 52 0 0 1 52 -52" fill="#0b3d2e"/>
+  <rect x="770" y="352" width="80" height="190" rx="26" fill="#17694d"/>
+  <rect x="735" y="392" width="42" height="130" rx="16" fill="#14563f" transform="rotate(18 735 392)"/>
+  <rect x="752" y="408" width="60" height="120" rx="18" fill="#d9a13b" transform="rotate(-24 752 408)"/>
+  <!-- checklist tablet -->
+  <rect x="680" y="430" width="130" height="180" rx="14" fill="#ffffff" stroke="#c9c2ab" stroke-width="4" transform="rotate(-10 680 430)"/>
+  <g transform="rotate(-10 680 430)" fill="#14563f">
+    <rect x="700" y="460" width="24" height="24" rx="5"/>
+    <rect x="700" y="502" width="24" height="24" rx="5"/>
+    <rect x="700" y="544" width="24" height="24" rx="5"/>
+  </g>
+  <g transform="rotate(-10 680 430)" stroke="#c9c2ab" stroke-width="5" stroke-linecap="round">
+    <line x1="736" y1="472" x2="790" y2="472"/>
+    <line x1="736" y1="514" x2="790" y2="514"/>
+    <line x1="736" y1="556" x2="790" y2="556"/>
+  </g>
+  <!-- desks -->
+  <g>
+    <rect x="140" y="560" width="220" height="26" rx="8" fill="#d9a13b"/>
+    <rect x="160" y="586" width="16" height="110" fill="#b98a2e"/>
+    <rect x="324" y="586" width="16" height="110" fill="#b98a2e"/>
+    <circle cx="250" cy="510" r="40" fill="#14563f"/>
+    <rect x="222" y="550" width="56" height="16" rx="8" fill="#17694d"/>
+    <rect x="470" y="560" width="220" height="26" rx="8" fill="#d9a13b"/>
+    <rect x="490" y="586" width="16" height="110" fill="#b98a2e"/>
+    <rect x="654" y="586" width="16" height="110" fill="#b98a2e"/>
+    <circle cx="580" cy="510" r="40" fill="#14563f"/>
+    <rect x="552" y="550" width="56" height="16" rx="8" fill="#17694d"/>
+    <rect x="860" y="560" width="220" height="26" rx="8" fill="#d9a13b"/>
+    <rect x="880" y="586" width="16" height="110" fill="#b98a2e"/>
+    <rect x="1044" y="586" width="16" height="110" fill="#b98a2e"/>
+    <circle cx="970" cy="510" r="40" fill="#14563f"/>
+    <rect x="942" y="550" width="56" height="16" rx="8" fill="#17694d"/>
+  </g>
+  <!-- floor -->
+  <rect x="0" y="700" width="1200" height="100" fill="#e9e3d2"/>
+</svg>

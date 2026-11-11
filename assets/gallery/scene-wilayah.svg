@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" role="img" aria-label="Ilustrasi wilayah kerja sembilan desa">
+  <rect width="1200" height="800" fill="#f7f4ec"/>
+  <rect x="0" y="0" width="1200" height="120" fill="#14563f"/>
+  <text x="600" y="76" text-anchor="middle" font-family="Georgia, serif" font-size="40" font-weight="bold" fill="#f7f4ec" letter-spacing="4">9 DESA WILAYAH KERJA</text>
+  <!-- map blob -->
+  <path d="M 220 280 C 320 180, 520 160, 660 210 C 800 260, 900 240, 960 320 C 1020 400, 980 500, 880 560 C 780 620, 560 640, 420 590 C 280 540, 160 420, 220 280 Z" fill="#ffffff" stroke="#c9c2ab" stroke-width="6"/>
+  <!-- pins -->
+  <g>
+    <g transform="translate(340,300)">
+      <path d="M 0 0 C -26 -30 -26 -64 0 -64 C 26 -64 26 -30 0 0 Z" fill="#d9a13b"/><circle cx="0" cy="-46" r="12" fill="#f7f4ec"/>
+      <text x="0" y="24" text-anchor="middle" font-family="Arial" font-size="20" font-weight="bold" fill="#0b3d2e">Klambu</text>
+    </g>
+    <g transform="translate(500,240)">
+      <path d="M 0 0 C -26 -30 -26 -64 0 -64 C 26 -64 26 -30 0 0 Z" fill="#14563f"/><circle cx="0" cy="-46" r="12" fill="#f7f4ec"/>
+      <text x="0" y="24" text-anchor="middle" font-family="Arial" font-size="20" font-weight="bold" fill="#0b3d2e">Menawan</text>
+    </g>
+    <g transform="translate(660,300)">
+      <path d="M 0 0 C -26 -30 -26 -64 0 -64 C 26 -64 26 -30 0 0 Z" fill="#d9a13b"/><circle cx="0" cy="-46" r="12" fill="#f7f4ec"/>
+      <text x="0" y="24" text-anchor="middle" font-family="Arial" font-size="20" font-weight="bold" fill="#0b3d2e">Terkesi</text>
+    </g>
+    <g transform="translate(820,360)">
+      <path d="M 0 0 C -26 -30 -26 -64 0 -64 C 26 -64 26 -30 0 0 Z" fill="#14563f"/><circle cx="0" cy="-46" r="12" fill="#f7f4ec"/>
+      <text x="0" y="24" text-anchor="middle" font-family="Arial" font-size="20" font-weight="bold" fill="#0b3d2e">Wandankemiri</text>
+    </g>
+    <g transform="translate(420,440)">
+      <path d="M 0 0 C -26 -30 -26 -64 0 -64 C 26 -64 26 -30 0 0 Z" fill="#14563f"/><circle cx="0" cy="-46" r="12" fill="#f7f4ec"/>
+      <text x="0" y="24" text-anchor="middle" font-family="Arial" font-size="20" font-weight="bold" fill="#0b3d2e">Selojari</text>
+    </g>
+    <g transform="translate(540,520)">
+      <path d="M 0 0 C -26 -30 -26 -64 0 -64 C 26 -64 26 -30 0 0 Z" fill="#d9a13b"/><circle cx="0" cy="-46" r="12" fill="#f7f4ec"/>
+      <text x="0" y="24" text-anchor="middle" font-family="Arial" font-size="20" font-weight="bold" fill="#0b3d2e">Penganten</text>
+    </g>
+    <g transform="translate(710,490)">
+      <path d="M 0 0 C -26 -30 -26 -64 0 -64 C 26 -64 26 -30 0 0 Z" fill="#14563f"/><circle cx="0" cy="-46" r="12" fill="#f7f4ec"/>
+      <text x="0" y="24" text-anchor="middle" font-family="Arial" font-size="20" font-weight="bold" fill="#0b3d2e">Kandangrejo</text>
+    </g>
+    <g transform="translate(300,380)">
+      <path d="M 0 0 C -26 -30 -26 -64 0 -64 C 26 -64 26 -30 0 0 Z" fill="#d9a13b"/><circle cx="0" cy="-46" r="12" fill="#f7f4ec"/>
+      <text x="0" y="24" text-anchor="middle" font-family="Arial" font-size="20" font-weight="bold" fill="#0b3d2e">Jenengan</text>
+    </g>
+    <g transform="translate(830,540)">
+      <path d="M 0 0 C -26 -30 -26 -64 0 -64 C 26 -64 26 -30 0 0 Z" fill="#d9a13b"/><circle cx="0" cy="-46" r="12" fill="#f7f4ec"/>
+      <text x="0" y="24" text-anchor="middle" font-family="Arial" font-size="20" font-weight="bold" fill="#0b3d2e">Taruman</text>
+    </g>
+  </g>
+  <rect x="0" y="720" width="1200" height="80" fill="#e9e3d2"/>
+</svg>

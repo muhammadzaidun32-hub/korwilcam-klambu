@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" role="img" aria-label="Ilustrasi sekolah dasar">
+  <rect width="1200" height="800" fill="#f7f4ec"/>
+  <rect x="0" y="0" width="1200" height="120" fill="#14563f"/>
+  <text x="600" y="76" text-anchor="middle" font-family="Georgia, serif" font-size="40" font-weight="bold" fill="#f7f4ec" letter-spacing="4">SEKOLAH BINAAN</text>
+  <!-- sky -->
+  <circle cx="980" cy="220" r="56" fill="#e6b34e"/>
+  <g fill="#ffffff" opacity=".8">
+    <ellipse cx="240" cy="200" rx="70" ry="22"/>
+    <ellipse cx="320" cy="230" rx="90" ry="20"/>
+    <ellipse cx="800" cy="180" rx="60" ry="18"/>
+  </g>
+  <!-- flag pole -->
+  <rect x="120" y="240" width="10" height="380" fill="#c9c2ab"/>
+  <path d="M 130 250 L 230 268 L 130 300 Z" fill="#d9a13b"/>
+  <!-- school building -->
+  <g>
+    <rect x="420" y="380" width="440" height="240" fill="#e6b34e"/>
+    <rect x="420" y="380" width="440" height="26" fill="#c98d2b"/>
+    <rect x="380" y="340" width="520" height="46" fill="#d9a13b"/>
+    <path d="M 380 340 L 640 250 L 900 340 Z" fill="#14563f"/>
+    <rect x="600" y="270" width="80" height="70" fill="#17694d"/>
+    <rect x="628" y="230" width="24" height="50" fill="#0b3d2e"/>
+    <circle cx="640" cy="212" r="16" fill="#d9a13b"/>
+    <rect x="620" y="500" width="80" height="120" rx="6" fill="#0b3d2e"/>
+    <g fill="#f7f4ec" stroke="#0b3d2e" stroke-width="5">
+      <rect x="470" y="440" width="90" height="80"/>
+      <rect x="720" y="440" width="90" height="80"/>
+    </g>
+    <text x="640" y="452" text-anchor="middle" font-family="Georgia, serif" font-size="30" font-weight="bold" fill="#0b3d2e" letter-spacing="2">SD</text>
+  </g>
+  <!-- kids -->
+  <g>
+    <circle cx="280" cy="600" r="30" fill="#0b3d2e"/><rect x="258" y="628" width="44" height="60" rx="16" fill="#d9a13b"/>
+    <circle cx="360" cy="616" r="26" fill="#0b3d2e"/><rect x="342" y="640" width="36" height="52" rx="14" fill="#17694d"/>
+    <circle cx="960" cy="610" r="28" fill="#0b3d2e"/><rect x="940" y="636" width="40" height="56" rx="15" fill="#d9a13b"/>
+    <circle cx="1030" cy="620" r="24" fill="#0b3d2e"/><rect x="1014" y="642" width="32" height="50" rx="13" fill="#14563f"/>
+  </g>
+  <!-- ground -->
+  <rect x="0" y="690" width="1200" height="110" fill="#1e7d59"/>
+  <rect x="0" y="690" width="1200" height="14" fill="#14563f"/>
+</svg>

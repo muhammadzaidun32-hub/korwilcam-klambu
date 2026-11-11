@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Data Sekolah — Korwilcam Klambu</title>
+  <meta name="description" content="Daftar lengkap 40 satuan pendidikan di Kecamatan Klambu, Kabupaten Grobogan: 26 SD Negeri (binaan), MI, SMP, MTs, MA, SMK, dan PAUD — lengkap dengan NPSN dan alamat.">
+  <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <div class="topbar">
+    <div class="container">
+      <span>
+        <svg viewBox="0 0 24 24"><path d="M4 4h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2zm8 7L4 6v12h16V6l-8 5z"/></svg>
+        <em data-cfg="kontak.email" style="font-style:normal">korwilcamklambu@gmail.com</em> <small class="cfg-note" data-for="kontak.email" style="opacity:.6">(contoh — sesuaikan)</small>
+      </span>
+      <span>
+        <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zm1 5h-2v6l5 3 1-1.7-4-2.3V7z"/></svg>
+        <em data-cfg="kontak.jamRingkas" style="font-style:normal">Layanan: Senin–Jumat, 08.00–14.00 WIB</em>
+      </span>
+      <span>
+        <svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 14.5 9 2.5 2.5 0 0 1 12 11.5z"/></svg>
+        <em data-cfg="kontak.lokasi" style="font-style:normal">Kecamatan Klambu, Kabupaten Grobogan, Jawa Tengah</em>
+      </span>
+    </div>
+  </div>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html">
+        <img src="assets/img/logo.svg" alt="Logo Korwilcam Klambu">
+        <span class="brand-text">
+          <strong>KORWILCAM KLAMBU</strong>
+          <span>Dinas Pendidikan Kab. Grobogan</span>
+        </span>
+      </a>
+      <button class="nav-toggle" aria-label="Buka menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="nav">
+        <a href="index.html">Beranda</a>
+        <a href="profil.html">Profil</a>
+        <a href="sekolah.html" class="active">Sekolah</a>
+        <a href="program.html">Program</a>
+        <a href="berita.html">Berita</a>
+        <a href="galeri.html">Galeri</a>
+        <a href="unduhan.html">Unduhan</a>
+        <a href="kontak.html" class="nav-cta">Kontak</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="banner">
+    <div class="container banner-inner">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="index.html">Beranda</a> <span>/</span> <span>Data Sekolah</span>
+      </nav>
+      <h1>Sekolah Binaan &amp; Satuan Pendidikan</h1>
+      <p>Data lengkap satuan pendidikan se-Kecamatan Klambu — 26 SD Negeri menjadi binaan utama Korwilcam jenjang SD.</p>
+    </div>
+  </section>
+
+  <!-- Ringkasan -->
+  <section class="section">
+    <div class="container">
+      <div class="hero-stats reveal" style="transform:none;margin-top:0">
+        <div class="stat"><b>26</b><span>SD Negeri — Binaan</span></div>
+        <div class="stat"><b>3</b><span>MI / MIS</span></div>
+        <div class="stat"><b>2</b><span>SMP Negeri</span></div>
+        <div class="stat"><b>40</b><span>Total Satuan Pendidikan</span></div>
+      </div>
+      <p class="note mt-2">
+        Madrasah (MI/MTs/MA) dikelola Kementerian Agama dan dicantumkan sebagai referensi.
+        Sumber data: Basis Data Pokok Pendidikan (Dapodik) — <a href="https://datapendidikan.com/kab/grobogan" target="_blank" rel="noopener">datapendidikan.com ↗</a>,
+        Kode Kecamatan 33.15.15. Verifikasi berkala dilakukan melalui Korwilcam.
+      </p>
+    </div>
+  </section>
+
+  <!-- Tabel -->
+  <section class="section" style="padding-top:0">
+    <div class="container">
+      <div class="filters reveal">
+        <div class="field">
+          <label for="f-cari">Cari Sekolah / NPSN</label>
+          <input type="text" id="f-cari" class="input" placeholder="contoh: Klambu, Taruman, 20314140…">
+        </div>
+        <div class="field">
+          <label for="f-jenjang">Jenjang</label>
+          <select id="f-jenjang" class="select">
+            <option value="semua">Semua Jenjang</option>
+            <option value="SD">SD (Binaan)</option>
+            <option value="MI">MI / MIS</option>
+            <option value="SMP">SMP</option>
+            <option value="MTs">MTs</option>
+            <option value="MA">MA</option>
+            <option value="SMK">SMK</option>
+            <option value="TK/PAUD">TK / PAUD</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="f-desa">Desa</label>
+          <select id="f-desa" class="select">
+            <option value="semua">Semua Desa</option>
+          </select>
+        </div>
+        <div class="field" style="align-self:end">
+          <button type="button" class="btn btn-primary btn-sm" id="f-reset"
+                  onclick="document.getElementById('f-cari').value='semua';document.getElementById('f-cari').value='';document.getElementById('f-jenjang').value='semua';document.getElementById('f-desa').value='semua';document.getElementById('f-cari').dispatchEvent(new Event('input'))">
+            Reset Filter
+          </button>
+        </div>
+      </div>
+      <div class="filter-count" id="f-count">Memuat data…</div>
+
+      <div class="table-wrap reveal">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>NPSN</th>
+              <th>Nama Sekolah</th>
+              <th>Jenjang &amp; Status</th>
+              <th>Desa</th>
+              <th>Alamat</th>
+            </tr>
+          </thead>
+          <tbody id="sekolah-body"></tbody>
+        </table>
+      </div>
+
+      <div class="card mt-2 reveal" style="border-left:4px solid var(--gold-500)">
+        <h3>Keterangan Wilayah Pelayanan</h3>
+        <p>
+          Wilayah kerja Korwilcam Klambu mencakup <strong>9 desa</strong>:
+          <span class="chip">Jenengan</span><span class="chip">Kandangrejo</span><span class="chip">Klambu</span>
+          <span class="chip">Menawan</span><span class="chip">Penganten</span><span class="chip">Selojari</span>
+          <span class="chip">Taruman</span><span class="chip">Terkesi</span><span class="chip">Wandankemiri</span>
+          — seluruh desa menggunakan kode pos <strong>58154</strong>.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="f-brand">
+            <img src="assets/img/logo.svg" alt="Logo Korwilcam Klambu">
+            <div>
+              <strong>KORWILCAM KLAMBU</strong>
+              <span>Dinas Pendidikan Kab. Grobogan</span>
+            </div>
+          </div>
+          <p>
+            Koordinator Wilayah Kecamatan jenjang SD Kecamatan Klambu — melayani pembinaan,
+            pendampingan, dan pengembangan mutu satuan pendidikan di sembilan desa wilayah kerja.
+          </p>
+        </div>
+        <div>
+          <h4>Navigasi</h4>
+          <ul>
+            <li><a href="index.html">Beranda</a></li>
+            <li><a href="profil.html">Profil Korwilcam</a></li>
+            <li><a href="sekolah.html">Data Sekolah</a></li>
+            <li><a href="program.html">Program &amp; Kegiatan</a></li>
+            <li><a href="unduhan.html">Pusat Unduhan</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Wilayah Kerja</h4>
+          <ul>
+            <li><a href="sekolah.html">Desa Klambu, Menawan, Penganten</a></li>
+            <li><a href="sekolah.html">Desa Selojari, Taruman, Terkesi</a></li>
+            <li><a href="sekolah.html">Desa Kandangrejo, Jenengan, Wandankemiri</a></li>
+          </ul>
+          <h4 style="margin-top:1.3rem">Tautan Resmi</h4>
+          <ul>
+            <li><a href="https://disdik.grobogan.go.id" target="_blank" rel="noopener">Dinas Pendidikan Grobogan ↗</a></li>
+            <li><a href="https://klambu.kec.grobogan.go.id" target="_blank" rel="noopener">Kecamatan Klambu ↗</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Kontak</h4>
+          <address data-cfg-html="alamatFooterHtml">Korwilcam Dinas Pendidikan<br>Kecamatan Klambu, Kabupaten Grobogan<br>Jawa Tengah 58154<br><br><a href="kontak.html">Lihat halaman kontak →</a></address>
+        </div>
+      </div>
+      <div class="foot-bottom">
+        <span>© <span data-year>2026</span> Korwilcam Kecamatan Klambu · Dinas Pendidikan Kabupaten Grobogan</span>
+        <span class="credit">Designed by <b>Kang Zaed</b></span>
+      </div>
+    </div>
+  </footer>
+
+  <button class="to-top" aria-label="Kembali ke atas">
+    <svg viewBox="0 0 24 24"><path d="M12 4l8 8h-6v8h-4v-8H4l8-8z"/></svg>
+  </button>
+
+  <script>
+    /* Data satuan pendidikan Kecamatan Klambu (Dapodik via datapendidikan.com, kode kec. 031515) */
+    window.SEKOLAH_KLAMBU = [
+      {npsn:"20314140", nama:"SD Negeri 1 Klambu", jenjang:"SD", status:"Negeri", desa:"Klambu", alamat:"Jl. Purwodadi–Kudus Km. 18"},
+      {npsn:"20314372", nama:"SD Negeri 2 Klambu", jenjang:"SD", status:"Negeri", desa:"Klambu", alamat:"Jalan Jatidiri"},
+      {npsn:"20313724", nama:"SD Negeri 3 Klambu", jenjang:"SD", status:"Negeri", desa:"Klambu", alamat:"Jl. Klambu–Terkesi"},
+      {npsn:"20313595", nama:"SD Negeri 4 Klambu", jenjang:"SD", status:"Negeri", desa:"Klambu", alamat:"Jalan Jatidiri No. 4"},
+      {npsn:"20314179", nama:"SD Negeri 1 Jenengan", jenjang:"SD", status:"Negeri", desa:"Jenengan", alamat:"Desa Jenengan"},
+      {npsn:"20314407", nama:"SD Negeri 2 Jenengan", jenjang:"SD", status:"Negeri", desa:"Jenengan", alamat:"Desa Jenengan"},
+      {npsn:"20314197", nama:"SD Negeri 1 Kandangrejo", jenjang:"SD", status:"Negeri", desa:"Kandangrejo", alamat:"Dusun Ngeluk"},
+      {npsn:"20314358", nama:"SD Negeri 2 Kandangrejo", jenjang:"SD", status:"Negeri", desa:"Kandangrejo", alamat:"Dusun Palurjo"},
+      {npsn:"20313778", nama:"SD Negeri 3 Kandangrejo", jenjang:"SD", status:"Negeri", desa:"Kandangrejo", alamat:"Desa Kandangrejo"},
+      {npsn:"20313636", nama:"SD Negeri 4 Kandangrejo", jenjang:"SD", status:"Negeri", desa:"Kandangrejo", alamat:"Desa Kandangrejo"},
+      {npsn:"20338336", nama:"SD Negeri 1 Menawan", jenjang:"SD", status:"Negeri", desa:"Menawan", alamat:"Desa Menawan"},
+      {npsn:"20314464", nama:"SD Negeri 2 Menawan", jenjang:"SD", status:"Negeri", desa:"Menawan", alamat:"Desa Menawan"},
+      {npsn:"20313743", nama:"SD Negeri 3 Menawan", jenjang:"SD", status:"Negeri", desa:"Menawan", alamat:"Dukuh Kayumas, Desa Menawan"},
+      {npsn:"20314545", nama:"SD Negeri 1 Penganten", jenjang:"SD", status:"Negeri", desa:"Penganten", alamat:"Jl. Raya Purwodadi–Kudus Km. 17"},
+      {npsn:"20314423", nama:"SD Negeri 2 Penganten", jenjang:"SD", status:"Negeri", desa:"Penganten", alamat:"Jl. Purwodadi–Kudus Km. 15"},
+      {npsn:"20313565", nama:"SD Negeri 3 Penganten", jenjang:"SD", status:"Negeri", desa:"Penganten", alamat:"Jl. Purwodadi–Kudus"},
+      {npsn:"20314514", nama:"SD Negeri 1 Selojari", jenjang:"SD", status:"Negeri", desa:"Selojari", alamat:"Desa Selojari"},
+      {npsn:"20313699", nama:"SD Negeri 2 Selojari", jenjang:"SD", status:"Negeri", desa:"Selojari", alamat:"Selojari Atas"},
+      {npsn:"20314031", nama:"SD Negeri 1 Taruman", jenjang:"SD", status:"Negeri", desa:"Taruman", alamat:"Jl. Pasar Taruman"},
+      {npsn:"20313709", nama:"SD Negeri 2 Taruman", jenjang:"SD", status:"Negeri", desa:"Taruman", alamat:"Jalan Lengki"},
+      {npsn:"20313537", nama:"SD Negeri 3 Taruman", jenjang:"SD", status:"Negeri", desa:"Taruman", alamat:"Dusun Batang"},
+      {npsn:"20313964", nama:"SD Negeri 4 Taruman", jenjang:"SD", status:"Negeri", desa:"Taruman", alamat:"Jl. Pasar Taruman No. 220"},
+      {npsn:"20314632", nama:"SD Negeri 1 Terkesi", jenjang:"SD", status:"Negeri", desa:"Terkesi", alamat:"Terkesi Selatan"},
+      {npsn:"20313686", nama:"SD Negeri 2 Terkesi", jenjang:"SD", status:"Negeri", desa:"Terkesi", alamat:"Dusun Terkesi Utara"},
+      {npsn:"20313531", nama:"SD Negeri 3 Terkesi", jenjang:"SD", status:"Negeri", desa:"Terkesi", alamat:"Jl. Purwodadi–Kudus Km. 25, Dusun Goleng"},
+      {npsn:"20313928", nama:"SD Negeri Wandankemiri", jenjang:"SD", status:"Negeri", desa:"Wandankemiri", alamat:"Jl. Purwodadi–Kudus Km. 26"},
+      {npsn:"30313916", nama:"SMP Negeri 1 Klambu", jenjang:"SMP", status:"Negeri", desa:"Klambu", alamat:"Jl. Terkesi No. 1, Klambu"},
+      {npsn:"20347532", nama:"SMP Negeri 2 Satu Atap Klambu", jenjang:"SMP", status:"Negeri", desa:"Taruman", alamat:"Jl. Pasar Taruman No. 218"},
+      {npsn:"60711984", nama:"MIS Nasyrul Ulum 01", jenjang:"MI", status:"Swasta", desa:"Terkesi", alamat:"Dusun Brakas RT 01 RW 05"},
+      {npsn:"60711985", nama:"MIS Nasyrul Ulum 02", jenjang:"MI", status:"Swasta", desa:"Terkesi", alamat:"Dusun Brakas, Terkesi"},
+      {npsn:"69977293", nama:"MI Unggulan Al Hikmah Wandankemiri", jenjang:"MI", status:"Swasta", desa:"Wandankemiri", alamat:"Jl. Raya Purwodadi–Kudus Km. 26"},
+      {npsn:"20363895", nama:"MTs Nasyrul Ulum Klambu", jenjang:"MTs", status:"Swasta", desa:"Terkesi", alamat:"Jl. Purwodadi–Kudus 26 Km, Brakas"},
+      {npsn:"20363896", nama:"MTs YPI Klambu", jenjang:"MTs", status:"Swasta", desa:"Klambu", alamat:"Kauman RT 01 RW 04"},
+      {npsn:"20362910", nama:"MA YPI Klambu", jenjang:"MA", status:"Swasta", desa:"Klambu", alamat:"Komplek Masjid Kauman No. 65"},
+      {npsn:"69881429", nama:"MA Nasyrul Ulum", jenjang:"MA", status:"Swasta", desa:"Terkesi", alamat:"Jl. Purwodadi–Kudus Km. 26, Brakas"},
+      {npsn:"69927310", nama:"SMK Unggulan Klambu", jenjang:"SMK", status:"Swasta", desa:"Klambu", alamat:"Dukuh Krajan RT 02 RW 02"},
+      {npsn:"70014646", nama:"PAUD Qur'an Al Huda", jenjang:"TK/PAUD", status:"Swasta", desa:"Taruman", alamat:"Dusun Manggal RT 02 RW 07"},
+      {npsn:"70014689", nama:"PAUD Qur'an Ki Ageng Setro Banyu", jenjang:"TK/PAUD", status:"Swasta", desa:"Taruman", alamat:"Dusun Batang RT 05 RW 05"},
+      {npsn:"70014692", nama:"PAUD Qur'an Taysirul Mujawwidin", jenjang:"TK/PAUD", status:"Swasta", desa:"Penganten", alamat:"Desa Penganten"},
+      {npsn:"69895119", nama:"TK Al Hikmah", jenjang:"TK/PAUD", status:"Swasta", desa:"Wandankemiri", alamat:"Jl. Purwodadi–Kudus Km. 26"}
+    ];
+  </script>
+  <script src="js/site-config.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

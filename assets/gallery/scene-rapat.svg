@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" role="img" aria-label="Ilustrasi rapat koordinasi kepala sekolah">
+  <rect width="1200" height="800" fill="#f7f4ec"/>
+  <rect x="0" y="0" width="1200" height="120" fill="#14563f"/>
+  <text x="600" y="76" text-anchor="middle" font-family="Georgia, serif" font-size="40" font-weight="bold" fill="#f7f4ec" letter-spacing="4">RAPAT KOORDINASI</text>
+  <!-- banner -->
+  <rect x="240" y="180" width="720" height="120" rx="16" fill="#ffffff" stroke="#c9c2ab" stroke-width="4"/>
+  <rect x="240" y="180" width="720" height="30" rx="16" fill="#d9a13b"/>
+  <g stroke="#c9c2ab" stroke-width="5" stroke-linecap="round">
+    <line x1="300" y1="250" x2="880" y2="250"/>
+    <line x1="300" y1="272" x2="760" y2="272"/>
+  </g>
+  <!-- table -->
+  <ellipse cx="600" cy="600" rx="380" ry="90" fill="#d9a13b"/>
+  <ellipse cx="600" cy="586" rx="380" ry="90" fill="#e6b34e"/>
+  <!-- attendees -->
+  <g>
+    <circle cx="300" cy="470" r="46" fill="#0b3d2e"/><rect x="262" y="514" width="76" height="90" rx="24" fill="#17694d"/>
+    <circle cx="470" cy="440" r="46" fill="#0b3d2e"/><rect x="432" y="484" width="76" height="90" rx="24" fill="#14563f"/>
+    <circle cx="600" cy="420" r="46" fill="#0b3d2e"/><rect x="562" y="464" width="76" height="90" rx="24" fill="#d9a13b"/>
+    <circle cx="730" cy="440" r="46" fill="#0b3d2e"/><rect x="692" y="484" width="76" height="90" rx="24" fill="#14563f"/>
+    <circle cx="900" cy="470" r="46" fill="#0b3d2e"/><rect x="862" y="514" width="76" height="90" rx="24" fill="#17694d"/>
+  </g>
+  <!-- documents on table -->
+  <g fill="#ffffff" stroke="#c9c2ab" stroke-width="3">
+    <rect x="360" y="560" width="120" height="70" rx="8" transform="rotate(-8 360 560)"/>
+    <rect x="540" y="580" width="120" height="70" rx="8"/>
+    <rect x="720" y="560" width="120" height="70" rx="8" transform="rotate(8 720 560)"/>
+  </g>
+  <!-- cup -->
+  <g transform="translate(880,520)">
+    <path d="M 0 0 h 40 v 24 a 20 20 0 0 1 -40 0 Z" fill="#0b3d2e"/>
+    <path d="M 40 6 h 12 a 10 10 0 0 1 0 20 h -12" fill="none" stroke="#0b3d2e" stroke-width="6"/>
+  </g>
+  <rect x="0" y="700" width="1200" height="100" fill="#e9e3d2"/>
+</svg>

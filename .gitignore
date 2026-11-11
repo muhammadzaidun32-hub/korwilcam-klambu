@@ -1,0 +1,5 @@
+# Berkas sistem & lokal
+Thumbs.db
+.DS_Store
+*.log
+.vercel

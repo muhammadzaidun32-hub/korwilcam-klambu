@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" role="img" aria-label="Ilustrasi penilaian kinerja guru">
+  <rect width="1200" height="800" fill="#f7f4ec"/>
+  <rect x="0" y="0" width="1200" height="120" fill="#14563f"/>
+  <text x="600" y="76" text-anchor="middle" font-family="Georgia, serif" font-size="40" font-weight="bold" fill="#f7f4ec" letter-spacing="4">PENILAIAN KINERJA GURU</text>
+  <!-- medal -->
+  <g transform="translate(600,300)">
+    <circle cx="0" cy="60" r="110" fill="#d9a13b"/>
+    <circle cx="0" cy="60" r="86" fill="#e6b34e"/>
+    <path d="M -30 -140 L 0 -60 L 30 -140 Z" fill="#14563f"/>
+    <path d="M -80 -130 L -10 -55 L -40 -30 Z" fill="#17694d"/>
+    <path d="M 80 -130 L 10 -55 L 40 -30 Z" fill="#17694d"/>
+    <text x="0" y="82" text-anchor="middle" font-family="Georgia, serif" font-size="64" font-weight="bold" fill="#0b3d2e">PK</text>
+  </g>
+  <!-- star row -->
+  <g fill="#d9a13b">
+    <path d="M 380 520 l 12 24 26 4 -19 18 5 26 -24 -12 -24 12 5 -26 -19 -18 26 -4 Z"/>
+    <path d="M 560 520 l 12 24 26 4 -19 18 5 26 -24 -12 -24 12 5 -26 -19 -18 26 -4 Z" transform="scale(1.4) translate(-160,-155)"/>
+    <path d="M 760 520 l 12 24 26 4 -19 18 5 26 -24 -12 -24 12 5 -26 -19 -18 26 -4 Z"/>
+  </g>
+  <!-- document -->
+  <g transform="translate(170,470)">
+    <rect x="0" y="0" width="180" height="240" rx="12" fill="#ffffff" stroke="#c9c2ab" stroke-width="4"/>
+    <g stroke="#d9a13b" stroke-width="6" stroke-linecap="round">
+      <line x1="30" y1="50" x2="150" y2="50"/>
+      <line x1="30" y1="90" x2="150" y2="90"/>
+      <line x1="30" y1="130" x2="120" y2="130"/>
+    </g>
+    <rect x="30" y="170" width="90" height="34" rx="17" fill="#14563f"/>
+  </g>
+  <g transform="translate(850,470)">
+    <rect x="0" y="0" width="180" height="240" rx="12" fill="#ffffff" stroke="#c9c2ab" stroke-width="4"/>
+    <g stroke="#c9c2ab" stroke-width="6" stroke-linecap="round">
+      <line x1="30" y1="50" x2="150" y2="50"/>
+      <line x1="30" y1="90" x2="150" y2="90"/>
+      <line x1="30" y1="130" x2="120" y2="130"/>
+    </g>
+    <circle cx="120" cy="190" r="26" fill="#d9a13b"/>
+    <path d="M 120 172 l 7 14 15 2 -11 10 3 15 -14 -7 -14 7 3 -15 -11 -10 15 -2 Z" fill="#0b3d2e"/>
+  </g>
+  <rect x="0" y="740" width="1200" height="60" fill="#e9e3d2"/>
+</svg>

@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" role="img" aria-label="Logo Korwilcam Klambu">
+  <defs>
+    <path id="arcTop" d="M 22 100 A 78 78 0 0 1 178 100"/>
+    <path id="arcBottom" d="M 17 100 A 83 83 0 0 0 183 100"/>
+    <linearGradient id="ringGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#17694d"/>
+      <stop offset="1" stop-color="#0b3d2e"/>
+    </linearGradient>
+    <linearGradient id="goldGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#e6b34e"/>
+      <stop offset="1" stop-color="#c98d2b"/>
+    </linearGradient>
+  </defs>
+
+  <!-- outer ring -->
+  <circle cx="100" cy="100" r="98" fill="#0b3d2e"/>
+  <circle cx="100" cy="100" r="86" fill="url(#ringGrad)"/>
+
+  <!-- ring text -->
+  <text fill="#f3e7c8" font-family="Georgia, 'Times New Roman', serif" font-size="15.5" font-weight="bold" letter-spacing="2.5">
+    <textPath href="#arcTop" startOffset="50%" text-anchor="middle">KORWILCAM KLAMBU</textPath>
+  </text>
+  <text fill="#e6b34e" font-family="Georgia, 'Times New Roman', serif" font-size="11.5" font-weight="bold" letter-spacing="2.4">
+    <textPath href="#arcBottom" startOffset="50%" text-anchor="middle">KABUPATEN GROBOGAN</textPath>
+  </text>
+
+  <!-- separators -->
+  <g fill="#d9a13b">
+    <circle cx="22" cy="100" r="3.5"/>
+    <circle cx="178" cy="100" r="3.5"/>
+  </g>
+
+  <!-- inner field -->
+  <circle cx="100" cy="100" r="62" fill="#f7f4ec"/>
+  <circle cx="100" cy="100" r="62" fill="none" stroke="#d9a13b" stroke-width="2.5"/>
+
+  <!-- rising sun -->
+  <g>
+    <g stroke="#d9a13b" stroke-width="3" stroke-linecap="round">
+      <line x1="100" y1="46" x2="100" y2="38"/>
+      <line x1="82" y1="52" x2="78" y2="45"/>
+      <line x1="118" y1="52" x2="122" y2="45"/>
+      <line x1="69" y1="63" x2="62" y2="58"/>
+      <line x1="131" y1="63" x2="138" y2="58"/>
+    </g>
+    <path d="M 78 78 A 22 22 0 0 1 122 78 Z" fill="url(#goldGrad)"/>
+  </g>
+
+  <!-- open book -->
+  <g>
+    <path d="M 56 112 C 70 104, 88 104, 100 112 L 100 148 C 88 140, 70 140, 56 148 Z" fill="#ffffff" stroke="#14563f" stroke-width="2.5" stroke-linejoin="round"/>
+    <path d="M 144 112 C 130 104, 112 104, 100 112 L 100 148 C 112 140, 130 140, 144 148 Z" fill="#ffffff" stroke="#14563f" stroke-width="2.5" stroke-linejoin="round"/>
+    <path d="M 62 116 C 72 111, 86 111, 95 116" fill="none" stroke="#c9c2ab" stroke-width="2"/>
+    <path d="M 62 124 C 72 119, 86 119, 95 124" fill="none" stroke="#c9c2ab" stroke-width="2"/>
+    <path d="M 62 132 C 72 127, 86 127, 95 132" fill="none" stroke="#c9c2ab" stroke-width="2"/>
+    <path d="M 138 116 C 128 111, 114 111, 105 116" fill="none" stroke="#c9c2ab" stroke-width="2"/>
+    <path d="M 138 124 C 128 119, 114 119, 105 124" fill="none" stroke="#c9c2ab" stroke-width="2"/>
+    <path d="M 138 132 C 128 127, 114 127, 105 132" fill="none" stroke="#c9c2ab" stroke-width="2"/>
+  </g>
+
+  <!-- pencil -->
+  <g transform="rotate(38 100 128)">
+    <rect x="96" y="94" width="8" height="42" rx="2" fill="#d9a13b"/>
+    <path d="M 96 136 L 100 146 L 104 136 Z" fill="#f3e7c8" stroke="#0b3d2e" stroke-width="1"/>
+    <rect x="96" y="88" width="8" height="7" rx="1.5" fill="#14563f"/>
+  </g>
+</svg>

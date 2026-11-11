@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" role="img" aria-label="Foto pimpinan (placeholder)">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#14563f"/>
+      <stop offset="1" stop-color="#0b3d2e"/>
+    </linearGradient>
+  </defs>
+  <rect width="400" height="400" fill="url(#bg)"/>
+  <!-- kawung pattern hint -->
+  <g fill="none" stroke="#ffffff" stroke-opacity="0.08" stroke-width="3">
+    <path d="M0 60 Q60 60 60 0 T60 120 T0 180"/>
+    <path d="M400 60 Q340 60 340 0 T340 120 T400 180"/>
+    <path d="M200 340 Q260 340 260 400"/>
+    <path d="M200 340 Q140 340 140 400"/>
+  </g>
+  <!-- monogram medallion -->
+  <circle cx="200" cy="176" r="92" fill="#f7f4ec"/>
+  <circle cx="200" cy="176" r="92" fill="none" stroke="#d9a13b" stroke-width="6"/>
+  <circle cx="200" cy="176" r="80" fill="none" stroke="#d9a13b" stroke-width="1.6" stroke-dasharray="4 6"/>
+  <text x="200" y="206" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="86" font-weight="bold" fill="#14563f">AS</text>
+  <!-- name plate -->
+  <rect x="46" y="300" width="308" height="54" rx="27" fill="#d9a13b"/>
+  <text x="200" y="334" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="18" font-weight="bold" fill="#0b3d2e">ANIEK SEPTORINI, S.Pd.</text>
+  <text x="200" y="380" text-anchor="middle" font-family="'Segoe UI', Arial, sans-serif" font-size="13" letter-spacing="2" fill="#f7f4ec">KORWILCAM KECAMATAN KLAMBU</text>
+</svg>
