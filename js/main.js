@@ -267,6 +267,46 @@
         "</figure>";
     }).join("");
   }
+
+  // slide hero memakai 5 gambar pertama galeri (bisa diganti foto asli via Admin)
+  const hsTrackEl = document.querySelector("#hs-track");
+  if (hsTrackEl && Array.isArray(cfg.galeri) && cfg.galeri.length > 0) {
+    hsTrackEl.innerHTML = cfg.galeri.slice(0, 5).map(function (g) {
+      return '<div class="hs-slide"><img src="' + escHtml(g.src || "") + '" alt="Foto/ilustrasi: ' + escHtml(g.judul || "") + '">' +
+        '<div class="hs-cap">' + escHtml(g.judul || "") + "</div></div>";
+    }).join("");
+  }
+
+  /* ----- Slider hero: auto geser ke kiri, berhenti saat diarahkan mouse, panah kiri/kanan ----- */
+  const hsSlider = document.querySelector("#hero-slider");
+  const hsTrack = document.querySelector("#hs-track");
+  if (hsSlider && hsTrack && hsTrack.children.length > 1) {
+    let hsIdx = 0, hsTimer = null;
+    const hsCount = hsTrack.children.length;
+    const hsDots = document.querySelector("#hs-dots");
+    for (let i = 0; i < hsCount; i++) {
+      const b = document.createElement("button");
+      b.type = "button";
+      b.setAttribute("aria-label", "Ke slide " + (i + 1));
+      b.addEventListener("click", function () { hsGo(i); hsStart(); });
+      hsDots.appendChild(b);
+    }
+    function hsRender() {
+      hsTrack.style.transform = "translateX(-" + hsIdx * 100 + "%)";
+      Array.prototype.forEach.call(hsDots.children, function (d, i) {
+        d.classList.toggle("active", i === hsIdx);
+      });
+    }
+    function hsGo(i) { hsIdx = (i + hsCount) % hsCount; hsRender(); }
+    function hsStart() { hsStop(); hsTimer = setInterval(function () { hsGo(hsIdx + 1); }, 4000); }
+    function hsStop() { if (hsTimer) { clearInterval(hsTimer); hsTimer = null; } }
+    hsSlider.addEventListener("mouseenter", hsStop);
+    hsSlider.addEventListener("mouseleave", hsStart);
+    document.querySelector("#hs-next").addEventListener("click", function () { hsGo(hsIdx + 1); hsStart(); });
+    document.querySelector("#hs-prev").addEventListener("click", function () { hsGo(hsIdx - 1); hsStart(); });
+    hsRender();
+    hsStart();
+  }
   } /* akhir init() */
 
   if (document.readyState === "loading") {
