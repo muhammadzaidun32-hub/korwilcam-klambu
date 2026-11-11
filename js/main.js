@@ -272,8 +272,7 @@
   const hsTrackEl = document.querySelector("#hs-track");
   if (hsTrackEl && Array.isArray(cfg.galeri) && cfg.galeri.length > 0) {
     hsTrackEl.innerHTML = cfg.galeri.slice(0, 5).map(function (g) {
-      return '<div class="hs-slide"><img src="' + escHtml(g.src || "") + '" alt="Foto/ilustrasi: ' + escHtml(g.judul || "") + '">' +
-        '<div class="hs-cap">' + escHtml(g.judul || "") + "</div></div>";
+      return '<div class="hs-slide"><img src="' + escHtml(g.src || "") + '" alt="Foto/ilustrasi: ' + escHtml(g.judul || "") + '"></div>';
     }).join("");
   }
 
@@ -300,8 +299,9 @@
     function hsGo(i) { hsIdx = (i + hsCount) % hsCount; hsRender(); }
     function hsStart() { hsStop(); hsTimer = setInterval(function () { hsGo(hsIdx + 1); }, 4000); }
     function hsStop() { if (hsTimer) { clearInterval(hsTimer); hsTimer = null; } }
-    hsSlider.addEventListener("mouseenter", hsStop);
-    hsSlider.addEventListener("mouseleave", hsStart);
+    const hsHoverHost = document.querySelector(".hero") || hsSlider;
+    hsHoverHost.addEventListener("mouseenter", hsStop);
+    hsHoverHost.addEventListener("mouseleave", hsStart);
     document.querySelector("#hs-next").addEventListener("click", function () { hsGo(hsIdx + 1); hsStart(); });
     document.querySelector("#hs-prev").addEventListener("click", function () { hsGo(hsIdx - 1); hsStart(); });
     hsRender();
