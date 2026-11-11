@@ -3,6 +3,24 @@
 Website statis (HTML/CSS/JS murni) untuk **Korwilcam Dinas Pendidikan Kecamatan Klambu, Kabupaten Grobogan**.
 Pimpinan: **Aniek Septorini, S.Pd., SD** (NIP 197409092006042008).
 
+## Edit Konten Tanpa Koding — Panel Admin
+
+Buka **`admin.html`** → masukkan password (bawaan: **`klambu2026`**, ganti di panel!).
+Dari situ Anda dapat mengubah: kontak & jam layanan, alamat, profil pimpinan,
+visi & misi, berita, dan pengumuman — lalu:
+
+1. **Terapkan ke Pratinjau** → lihat hasil langsung di browser.
+2. **Unduh site-config.js** → timpa file `js\site-config.js`.
+3. Jalankan **`PUBLISH.bat`** → perubahan online (setelah setup GitHub/Vercel,
+   lihat **`README-DEPLOY.md`**).
+
+## Publikasi Online (GitHub + Vercel)
+
+Panduan lengkap sekali-setup ada di **`README-DEPLOY.md`**. Ringkas:
+buat akun GitHub & Vercel (gratis, hanya bisa oleh Anda) → buat repo
+`korwilcam-klambu` → jalankan `PUBLISH.bat` (ganti username dulu) →
+di Vercel klik **Import** repo → online.
+
 ## Cara Membuka
 
 1. **Cara termudah**: klik dua kali `index.html` — website langsung terbuka di browser.
