@@ -276,35 +276,56 @@
     }).join("");
   }
 
-  /* ----- Slider hero: auto geser ke kiri, berhenti saat diarahkan mouse, panah kiri/kanan ----- */
+  /* ----- Slider hero: loop mulus — perpindahan selalu lanjut ke slide berikutnya ----- */
   const hsSlider = document.querySelector("#hero-slider");
   const hsTrack = document.querySelector("#hs-track");
   if (hsSlider && hsTrack && hsTrack.children.length > 1) {
-    let hsIdx = 0, hsTimer = null;
     const hsCount = hsTrack.children.length;
+    // klon penghubung ujung-ujung: slide terakhir tampil sebelum slide 1, slide 1 setelah slide terakhir
+    const hsFirstClone = hsTrack.children[0].cloneNode(true);
+    const hsLastClone = hsTrack.children[hsCount - 1].cloneNode(true);
+    hsFirstClone.setAttribute("aria-hidden", "true");
+    hsLastClone.setAttribute("aria-hidden", "true");
+    hsTrack.appendChild(hsFirstClone);
+    hsTrack.insertBefore(hsLastClone, hsTrack.firstChild);
+
+    let hsPos = 1, hsTimer = null, hsMoving = false;
     const hsDots = document.querySelector("#hs-dots");
     for (let i = 0; i < hsCount; i++) {
       const b = document.createElement("button");
       b.type = "button";
       b.setAttribute("aria-label", "Ke slide " + (i + 1));
-      b.addEventListener("click", function () { hsGo(i); hsStart(); });
+      b.addEventListener("click", function () { hsGoTo(i + 1); hsStart(); });
       hsDots.appendChild(b);
     }
-    function hsRender() {
-      hsTrack.style.transform = "translateX(-" + hsIdx * 100 + "%)";
+    function hsPaint(withTransition) {
+      if (!withTransition) hsTrack.style.transition = "none";
+      hsTrack.style.transform = "translateX(-" + hsPos * 100 + "%)";
+      if (!withTransition) { void hsTrack.offsetWidth; hsTrack.style.transition = ""; }
+      const active = ((hsPos - 1) % hsCount + hsCount) % hsCount;
       Array.prototype.forEach.call(hsDots.children, function (d, i) {
-        d.classList.toggle("active", i === hsIdx);
+        d.classList.toggle("active", i === active);
       });
     }
-    function hsGo(i) { hsIdx = (i + hsCount) % hsCount; hsRender(); }
-    function hsStart() { hsStop(); hsTimer = setInterval(function () { hsGo(hsIdx + 1); }, 4000); }
+    function hsGoTo(pos) {
+      if (hsMoving) return;
+      hsMoving = true;
+      hsPos = pos;
+      hsPaint(true);
+      setTimeout(function () {
+        if (hsPos === 0) { hsPos = hsCount; hsPaint(false); }          // klon awal → slide terakhir
+        else if (hsPos === hsCount + 1) { hsPos = 1; hsPaint(false); } // klon akhir → slide pertama
+        hsMoving = false;
+      }, 830);
+    }
+    function hsStart() { hsStop(); hsTimer = setInterval(function () { hsGoTo(hsPos + 1); }, 4000); }
     function hsStop() { if (hsTimer) { clearInterval(hsTimer); hsTimer = null; } }
     const hsHoverHost = document.querySelector(".hero") || hsSlider;
     hsHoverHost.addEventListener("mouseenter", hsStop);
     hsHoverHost.addEventListener("mouseleave", hsStart);
-    document.querySelector("#hs-next").addEventListener("click", function () { hsGo(hsIdx + 1); hsStart(); });
-    document.querySelector("#hs-prev").addEventListener("click", function () { hsGo(hsIdx - 1); hsStart(); });
-    hsRender();
+    document.querySelector("#hs-next").addEventListener("click", function () { hsGoTo(hsPos + 1); hsStart(); });
+    document.querySelector("#hs-prev").addEventListener("click", function () { hsGoTo(hsPos - 1); hsStart(); });
+    hsPaint(false);
     hsStart();
   }
   } /* akhir init() */
