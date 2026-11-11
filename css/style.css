@@ -308,6 +308,7 @@ table.data-table .npsn{font-variant-numeric:tabular-nums;font-weight:700;color:v
   box-shadow:var(--shadow-sm);
 }
 .notice svg{width:20px;height:20px;fill:var(--gold-600);flex:none;margin-top:.15rem}
+.notice img{width:72px;height:72px;object-fit:cover;border-radius:10px;flex:none;margin-top:.15rem;border:1px solid var(--line)}
 .notice h4{font-size:.98rem;margin-bottom:.15rem}
 .notice p{font-size:.86rem;color:var(--muted)}
 

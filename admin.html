@@ -22,7 +22,7 @@
     .admin-top .container{display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap}
     .admin-actions{display:flex;gap:.6rem;flex-wrap:wrap}
     .admin-section{margin-bottom:2rem}
-    .admin-section h2{display:flex;align-items:center;gap:.6rem;font-size:1.35rem;margin-bottom:1.2rem}
+    .admin-section h2{display:flex;align-items:center;gap:.6rem;font-size:1.35rem;margin-bottom:1.2rem;flex-wrap:wrap}
     .admin-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
     .admin-grid .full{grid-column:1/-1}
     .item-box{border:1.5px dashed var(--line);border-radius:14px;padding:1rem 1.1rem;margin-bottom:1rem;background:#fffdf7}
@@ -38,6 +38,9 @@
     .pub-steps li{counter-increment:step;display:flex;gap:.9rem;padding:.6rem 0;border-bottom:1px dashed var(--line);font-size:.95rem}
     .pub-steps li::before{content:counter(step);flex:none;width:28px;height:28px;border-radius:50%;
       background:var(--gold-500);color:var(--green-950);font-weight:800;display:grid;place-items:center;font-size:.85rem}
+    .img-tools{display:flex;gap:.6rem;align-items:center;flex-wrap:wrap;margin:.4rem 0}
+    .img-preview{width:100%;max-height:160px;object-fit:cover;border-radius:10px;border:1px solid var(--line);
+      margin-top:.5rem;display:none;background:#fff}
     @media(max-width:720px){.admin-grid{grid-template-columns:1fr}}
   </style>
 </head>
@@ -141,6 +144,9 @@
             </div>
           </div>
           <p class="hint">Nama pada struktur organisasi otomatis mengikuti kolom "Nama &amp; gelar".</p>
+          <hr class="divider">
+          <div id="foto-pimpinan-tools"></div>
+          <p class="hint">Foto tampil di Beranda &amp; halaman Profil. Disarankan foto tegak (potret) yang jelas.</p>
         </div>
       </section>
 
@@ -167,9 +173,16 @@
 
       <!-- Pengumuman -->
       <section class="admin-section">
-        <h2>🔔 Pengumuman <small class="hint" style="text-transform:none;letter-spacing:0">(sidebar halaman Berita)</small></h2>
+        <h2>🔔 Pengumuman <small class="hint" style="text-transform:none;letter-spacing:0">(sidebar halaman Berita; boleh disertai gambar)</small></h2>
         <div id="pengumuman-editor"></div>
         <button class="btn btn-outline btn-sm" type="button" id="btn-pengumuman-add">+ Tambah Pengumuman</button>
+      </section>
+
+      <!-- Galeri -->
+      <section class="admin-section">
+        <h2>🖼️ Galeri Kegiatan <small class="hint" style="text-transform:none;letter-spacing:0">(halaman Galeri; foto dipotong otomatis rasio 3:2)</small></h2>
+        <div id="galeri-editor"></div>
+        <button class="btn btn-outline btn-sm" type="button" id="btn-galeri-add">+ Tambah Foto / Ilustrasi</button>
       </section>
 
       <!-- Publikasi -->
@@ -178,11 +191,15 @@
         <div class="card" style="border-left:4px solid var(--gold-500)">
           <ol class="pub-steps">
             <li><span>Klik <b>“Terapkan ke Pratinjau”</b> — perubahan langsung terlihat di tab website (refresh halaman website).</span></li>
-            <li><span>Klik <b>“Unduh site-config.js”</b> — file konfigurasi akan terunduh ke folder Downloads.</span></li>
+            <li><span>Klik <b>“Unduh site-config.js”</b> — file konfigurasi (termasuk gambar unggahan) akan terunduh.</span></li>
             <li><span>Salin / pindahkan file hasil unduhan ke folder <code>js\</code> di folder website, <b>timpa</b> file <code>site-config.js</code> yang lama.</span></li>
             <li><span>Jalankan <b>PUBLISH.bat</b> di folder website (klik dua kali) — perubahan terunggah ke GitHub dan Vercel otomatis meng-online-kan dalam 1–2 menit.</span></li>
           </ol>
-          <p class="hint">Jika website masih dibuka dari folder (belum online), langkah 4 dapat dilewati — cukup timpa file-nya.</p>
+          <p class="hint">
+            Gambar yang diunggah otomatis <b>dikompres</b> dan tertanam di dalam file konfigurasi —
+            tidak perlu upload gambar terpisah ke hosting. Foto galeri dikompres ke lebar maks 1400px,
+            foto pimpinan &amp; pengumuman 700px, agar website tetap ringan.
+          </p>
         </div>
       </section>
 
@@ -201,8 +218,8 @@
     "use strict";
 
     var OVERRIDE_KEY = "SITE_CONFIG_OVERRIDE";
+    var FOTO_BAWAAN = "assets/img/avatar-pimpinan.svg";
 
-    function deepCopy(o) { return JSON.parse(JSON.stringify(o)); }
     function mergedCfg() {
       var base = window.SITE_CONFIG || {};
       var over = {};
@@ -227,7 +244,7 @@
       t.textContent = msg;
       t.classList.add("show");
       clearTimeout(t._h);
-      t._h = setTimeout(function () { t.classList.remove("show"); }, 3200);
+      t._h = setTimeout(function () { t.classList.remove("show"); }, 3600);
     }
     function el(tag, cls, html) {
       var e = document.createElement(tag);
@@ -237,6 +254,101 @@
     }
     function esc(s) {
       return String(s == null ? "" : s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+    }
+
+    /* ---------- Kompresi gambar ---------- */
+    function processImage(file, maxW) {
+      return new Promise(function (resolve, reject) {
+        var reader = new FileReader();
+        reader.onload = function () {
+          if (file.type === "image/svg+xml") return resolve(String(reader.result));
+          var img = new Image();
+          img.onload = function () {
+            var scale = Math.min(1, maxW / img.width);
+            var w = Math.max(1, Math.round(img.width * scale));
+            var h = Math.max(1, Math.round(img.height * scale));
+            var c = document.createElement("canvas");
+            c.width = w; c.height = h;
+            c.getContext("2d").drawImage(img, 0, 0, w, h);
+            resolve(c.toDataURL("image/jpeg", 0.82));
+          };
+          img.onerror = function () { resolve(String(reader.result)); };
+          img.src = String(reader.result);
+        };
+        reader.onerror = reject;
+        reader.readAsDataURL(file);
+      });
+    }
+    window.__adminProcessImage = processImage; // untuk pengujian
+
+    /* ---------- Alat unggah/tautan gambar ---------- */
+    function addImageTools(host, obj, key, maxW, label) {
+      var wrap = el("div", "field");
+      wrap.appendChild(el("label", null, esc(label)));
+
+      var tools = el("div", "img-tools");
+      var fileBtn = el("button", "btn btn-primary btn-sm", "📁 Pilih Gambar dari Komputer");
+      fileBtn.type = "button";
+      var file = document.createElement("input");
+      file.type = "file";
+      file.accept = "image/*";
+      file.style.display = "none";
+      tools.appendChild(fileBtn);
+      tools.appendChild(file);
+
+      var urlInput = document.createElement("input");
+      urlInput.className = "input";
+      urlInput.placeholder = "…atau tempel tautan gambar (URL)";
+      urlInput.value = (obj[key] && String(obj[key]).indexOf("data:") === 0) ? "" : (obj[key] || "");
+      tools.appendChild(urlInput);
+
+      var clearBtn = el("button", "btn btn-outline btn-sm", "Kosongkan");
+      clearBtn.type = "button";
+      tools.appendChild(clearBtn);
+
+      var preview = el("img", "img-preview");
+      preview.alt = "Pratinjau gambar";
+
+      function updatePreview() {
+        var v = obj[key];
+        if (v) { preview.src = v; preview.style.display = "block"; }
+        else { preview.removeAttribute("src"); preview.style.display = "none"; }
+      }
+      updatePreview();
+
+      fileBtn.addEventListener("click", function () { file.click(); });
+      file.addEventListener("change", function () {
+        var f = file.files && file.files[0];
+        if (!f) return;
+        fileBtn.disabled = true;
+        fileBtn.textContent = "⏳ Memproses…";
+        processImage(f, maxW).then(function (dataUrl) {
+          obj[key] = dataUrl;
+          urlInput.value = "";
+          updatePreview();
+          toast("Gambar dimuat (otomatis dikompres) — jangan lupa Terapkan ke Pratinjau.");
+        }).catch(function () {
+          toast("Gagal membaca gambar. Coba file lain.");
+        }).finally(function () {
+          fileBtn.disabled = false;
+          fileBtn.textContent = "📁 Pilih Gambar dari Komputer";
+          file.value = "";
+        });
+      });
+      urlInput.addEventListener("input", function () {
+        obj[key] = urlInput.value.trim();
+        updatePreview();
+      });
+      clearBtn.addEventListener("click", function () {
+        obj[key] = "";
+        urlInput.value = "";
+        updatePreview();
+      });
+
+      wrap.appendChild(tools);
+      wrap.appendChild(preview);
+      host.appendChild(wrap);
+      return wrap;
     }
 
     /* ---------- Gerbang ---------- */
@@ -276,7 +388,7 @@
           set(ta.getAttribute("data-lines"), ta.value.split("\n").map(function (s) { return s.trim(); }).filter(Boolean));
         });
       });
-      renderJam(); renderMisi(); renderBerita(); renderPengumuman();
+      renderJam(); renderMisi(); renderBerita(); renderPengumuman(); renderGaleri(); renderFotoPimpinan();
 
       document.getElementById("btn-jam-add").addEventListener("click", function () {
         (CFG.kontak.jam = CFG.kontak.jam || []).push({ hari: "", jam: "" });
@@ -291,8 +403,12 @@
         renderBerita();
       });
       document.getElementById("btn-pengumuman-add").addEventListener("click", function () {
-        (CFG.pengumuman = CFG.pengumuman || []).push({ judul: "", isi: "" });
+        (CFG.pengumuman = CFG.pengumuman || []).push({ judul: "", isi: "", gambar: "" });
         renderPengumuman();
+      });
+      document.getElementById("btn-galeri-add").addEventListener("click", function () {
+        (CFG.galeri = CFG.galeri || []).unshift({ judul: "Kegiatan Baru", keterangan: "", src: "" });
+        renderGaleri();
       });
 
       document.getElementById("btn-apply").addEventListener("click", function () {
@@ -398,8 +514,35 @@
           g.appendChild(field("Judul", n.judul, function (v) { n.judul = v; }));
           g.appendChild(field("Isi", n.isi, function (v) { n.isi = v; }, true));
           box.appendChild(g);
+          addImageTools(box, n, "gambar", 700, "Gambar pengumuman (opsional)");
         }, function () { CFG.pengumuman.splice(i, 1); renderPengumuman(); }));
       });
+    }
+    function renderGaleri() {
+      var host = document.getElementById("galeri-editor");
+      host.innerHTML = "";
+      (CFG.galeri || []).forEach(function (g, i) {
+        host.appendChild(itemBox("Galeri #" + (i + 1), function (box) {
+          var g2 = el("div", "admin-grid");
+          g2.appendChild(field("Judul", g.judul, function (v) { g.judul = v; }));
+          g2.appendChild(field("Keterangan kecil", g.keterangan, function (v) { g.keterangan = v; }));
+          box.appendChild(g2);
+          addImageTools(box, g, "src", 1400, "Foto kegiatan");
+        }, function () { CFG.galeri.splice(i, 1); renderGaleri(); }));
+      });
+    }
+    function renderFotoPimpinan() {
+      var host = document.getElementById("foto-pimpinan-tools");
+      host.innerHTML = "";
+      addImageTools(host, CFG.pimpinan, "foto", 700, "Foto pimpinan");
+      var reset = el("button", "btn btn-outline btn-sm", "Kembalikan Ilustrasi Bawaan");
+      reset.type = "button";
+      reset.addEventListener("click", function () {
+        CFG.pimpinan.foto = FOTO_BAWAAN;
+        renderFotoPimpinan();
+        toast("Foto pimpinan kembali ke ilustrasi bawaan.");
+      });
+      host.appendChild(reset);
     }
   })();
   </script>

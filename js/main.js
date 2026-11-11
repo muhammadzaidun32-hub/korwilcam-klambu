@@ -54,21 +54,21 @@
     el.textContent = new Date().getFullYear();
   });
 
-  /* ----- Lightbox galeri ----- */
+  /* ----- Lightbox galeri (delegasi — mendukung galeri hasil unggahan admin) ----- */
   const lightbox = document.querySelector(".lightbox");
   if (lightbox) {
     const lbImg = lightbox.querySelector("img");
     const lbCap = lightbox.querySelector("figcaption");
-    document.querySelectorAll(".g-item").forEach((item) => {
-      item.addEventListener("click", () => {
-        const img = item.querySelector("img");
-        if (!img) return;
-        lbImg.src = img.src;
-        lbImg.alt = img.alt || "";
-        lbCap.textContent = item.dataset.caption || img.alt || "";
-        lightbox.classList.add("show");
-        document.body.style.overflow = "hidden";
-      });
+    document.addEventListener("click", (e) => {
+      const item = e.target.closest(".g-item");
+      if (!item) return;
+      const img = item.querySelector("img");
+      if (!img) return;
+      lbImg.src = img.src;
+      lbImg.alt = img.alt || "";
+      lbCap.textContent = item.dataset.caption || img.alt || "";
+      lightbox.classList.add("show");
+      document.body.style.overflow = "hidden";
     });
     function closeLb() {
       lightbox.classList.remove("show");
@@ -152,7 +152,7 @@
 
   /* ----- Penerapan konfigurasi situs (diedit lewat admin.html) ----- */
   function escHtml(s) {
-    return String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+    return String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
   }
   function loadConfig() {
     let base = window.SITE_CONFIG || {};
@@ -232,8 +232,10 @@
   const notices = document.querySelector("#pengumuman-list");
   if (notices && Array.isArray(cfg.pengumuman)) {
     notices.innerHTML = cfg.pengumuman.map(function (n) {
-      return '<div class="notice">' +
-        '<svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7v4l-2 3v1h18v-1l-2-3V9a7 7 0 0 0-7-7zm-3 16h6a3 3 0 0 1-6 0z"/></svg>' +
+      const icon = n.gambar
+        ? '<img class="notice-img" src="' + escHtml(n.gambar) + '" alt="Gambar pengumuman">'
+        : '<svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 0-7 7v4l-2 3v1h18v-1l-2-3V9a7 7 0 0 0-7-7zm-3 16h6a3 3 0 0 1-6 0z"/></svg>';
+      return '<div class="notice">' + icon +
         "<div><h4>" + (n.judul || "") + "</h4><p>" + (n.isi || "") + "</p></div>" +
         "</div>";
     }).join("");
@@ -244,6 +246,25 @@
   if (misiEl && Array.isArray(cfg.misi)) {
     misiEl.innerHTML = cfg.misi.map(function (m, i) {
       return '<li><span class="num">' + (i + 1) + "</span><span>" + m + "</span></li>";
+    }).join("");
+  }
+
+  // sumber gambar dari konfigurasi (foto pimpinan, dll.)
+  document.querySelectorAll("[data-cfg-src]").forEach(function (el) {
+    const path = (el.getAttribute("data-cfg-src") || "").split(".");
+    let v = cfg;
+    for (let i = 0; i < path.length; i++) { v = v && v[path[i]]; }
+    if (typeof v === "string" && v) el.src = v;
+  });
+
+  // galeri kegiatan dari konfigurasi
+  const ggrid = document.querySelector("#galeri-list");
+  if (ggrid && Array.isArray(cfg.galeri)) {
+    ggrid.innerHTML = cfg.galeri.map(function (g) {
+      return '<figure class="g-item" data-caption="' + escHtml(g.judul || "") + '">' +
+        '<img src="' + escHtml(g.src || "") + '" alt="Foto/ilustrasi kegiatan: ' + escHtml(g.judul || "") + '">' +
+        '<figcaption>' + escHtml(g.judul || "") + "<small>" + escHtml(g.keterangan || "") + "</small></figcaption>" +
+        "</figure>";
     }).join("");
   }
   } /* akhir init() */

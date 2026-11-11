@@ -14,7 +14,8 @@ window.SITE_CONFIG = {
     nama: "Aniek Septorini, S.Pd., SD",
     jabatan: "Korwilcam Dinas Pendidikan Kecamatan Klambu",
     nip: "197409092006042008",
-    org: "Aniek Septorini, S.Pd., SD — Koordinator Wilayah Kecamatan jenjang SD"
+    org: "Aniek Septorini, S.Pd., SD — Koordinator Wilayah Kecamatan jenjang SD",
+    foto: "assets/img/avatar-pimpinan.svg"
   },
 
   /* Kontak & layanan */
@@ -104,19 +105,33 @@ window.SITE_CONFIG = {
     }
   ],
 
-  /* Pengumuman (sidebar halaman Berita) */
+  /* Pengumuman (sidebar halaman Berita). "gambar" opsional — kosongkan bila tanpa gambar. */
   pengumuman: [
     {
       judul: "Jadwal PKG per Sekolah",
-      isi: "Jadwal rinci PKG disampaikan melalui grup koordinasi kepala sekolah dan pendamping gugus."
+      isi: "Jadwal rinci PKG disampaikan melalui grup koordinasi kepala sekolah dan pendamping gugus.",
+      gambar: ""
     },
     {
       judul: "Pemutakhiran Dapodik",
-      isi: "Operator sekolah diminta menuntaskan validasi data pada setiap penggalan tanggal sesuai arahan Dapodik."
+      isi: "Operator sekolah diminta menuntaskan validasi data pada setiap penggalan tanggal sesuai arahan Dapodik.",
+      gambar: ""
     },
     {
       judul: "Konsultasi Sekolah",
-      isi: "Layanan konsultasi administrasi dan pembelajaran terbuka setiap hari kerja pukul 08.00–14.00 WIB."
+      isi: "Layanan konsultasi administrasi dan pembelajaran terbuka setiap hari kerja pukul 08.00–14.00 WIB.",
+      gambar: ""
     }
+  ],
+
+  /* Galeri kegiatan (halaman Galeri). "src" bisa: path ilustrasi bawaan,
+     tautan gambar (URL), atau gambar unggahan dari Halaman Admin. */
+  galeri: [
+    { judul: "Supervisi Akademik", keterangan: "Kunjungan kelas & umpan balik guru", src: "assets/gallery/scene-supervisi.svg" },
+    { judul: "Rapat Koordinasi", keterangan: "Kepala sekolah SD se-kecamatan", src: "assets/gallery/scene-rapat.svg" },
+    { judul: "Penilaian Kinerja Guru", keterangan: "PKG & pembinaan administrasi keguruan", src: "assets/gallery/scene-pkg.svg" },
+    { judul: "Pendampingan ANBK", keterangan: "Kesiapan sarana & literasi digital", src: "assets/gallery/scene-anbk.svg" },
+    { judul: "Penguatan Literasi", keterangan: "Budaya baca & pojok literasi sekolah", src: "assets/gallery/scene-literasi.svg" },
+    { judul: "Sekolah Binaan", keterangan: "26 SD Negeri di 9 desa wilayah kerja", src: "assets/gallery/scene-sekolah.svg" }
   ]
 };
