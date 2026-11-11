@@ -178,6 +178,16 @@
         <button class="btn btn-outline btn-sm" type="button" id="btn-pengumuman-add">+ Tambah Pengumuman</button>
       </section>
 
+      <!-- Latar Belakang Beranda -->
+      <section class="admin-section">
+        <h2>🎬 Latar Belakang Beranda <small class="hint" style="text-transform:none;letter-spacing:0">(5 gambar slider di belakang teks sambutan beranda)</small></h2>
+        <div class="card">
+          <div id="hero-slides-editor"></div>
+          <button class="btn btn-outline btn-sm" type="button" id="btn-hero-clear">Kosongkan Semua — Pakai Galeri Otomatis</button>
+          <p class="hint">Isi dengan mengunggah gambar dari komputer atau menempel tautan (URL). Bila semua slot dikosongkan, latar otomatis memakai 5 gambar pertama Galeri Kegiatan.</p>
+        </div>
+      </section>
+
       <!-- Galeri -->
       <section class="admin-section">
         <h2>🖼️ Galeri Kegiatan <small class="hint" style="text-transform:none;letter-spacing:0">(halaman Galeri; foto dipotong otomatis rasio 3:2)</small></h2>
@@ -212,7 +222,7 @@
 
   <div class="toast" id="toast"></div>
 
-  <script src="js/site-config.js?v=9"></script>
+  <script src="js/site-config.js?v=11"></script>
   <script>
   (function () {
     "use strict";
@@ -388,7 +398,7 @@
           set(ta.getAttribute("data-lines"), ta.value.split("\n").map(function (s) { return s.trim(); }).filter(Boolean));
         });
       });
-      renderJam(); renderMisi(); renderBerita(); renderPengumuman(); renderGaleri(); renderFotoPimpinan();
+      renderJam(); renderMisi(); renderBerita(); renderPengumuman(); renderGaleri(); renderFotoPimpinan(); renderHeroSlides();
 
       document.getElementById("btn-jam-add").addEventListener("click", function () {
         (CFG.kontak.jam = CFG.kontak.jam || []).push({ hari: "", jam: "" });
@@ -409,6 +419,11 @@
       document.getElementById("btn-galeri-add").addEventListener("click", function () {
         (CFG.galeri = CFG.galeri || []).unshift({ judul: "Kegiatan Baru", keterangan: "", src: "" });
         renderGaleri();
+      });
+      document.getElementById("btn-hero-clear").addEventListener("click", function () {
+        CFG.hero.slides = ["", "", "", "", ""];
+        renderHeroSlides();
+        toast("Slot latar dikosongkan — slider memakai 5 gambar pertama Galeri Kegiatan.");
       });
 
       document.getElementById("btn-apply").addEventListener("click", function () {
@@ -530,6 +545,19 @@
           addImageTools(box, g, "src", 1400, "Foto kegiatan");
         }, function () { CFG.galeri.splice(i, 1); renderGaleri(); }));
       });
+    }
+    function renderHeroSlides() {
+      if (!CFG.hero || !Array.isArray(CFG.hero.slides)) CFG.hero = { slides: ["", "", "", "", ""] };
+      while (CFG.hero.slides.length < 5) CFG.hero.slides.push("");
+      var host = document.getElementById("hero-slides-editor");
+      host.innerHTML = "";
+      for (var i = 0; i < 5; i++) {
+        (function (idx) {
+          host.appendChild(itemBox("Gambar Latar #" + (idx + 1), function (box) {
+            addImageTools(box, CFG.hero.slides, idx, 1400, "Unggah file / tempel tautan gambar");
+          }, null));
+        })(i);
+      }
     }
     function renderFotoPimpinan() {
       var host = document.getElementById("foto-pimpinan-tools");

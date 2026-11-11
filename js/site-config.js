@@ -124,6 +124,13 @@ window.SITE_CONFIG = {
     }
   ],
 
+  /* Latar belakang beranda (slider di belakang teks sambutan).
+     Isi tiap slot dengan tautan gambar atau unggah lewat Halaman Admin.
+     Bila semua kosong, otomatis memakai 5 gambar pertama Galeri Kegiatan. */
+  hero: {
+    slides: ["", "", "", "", ""]
+  },
+
   /* Galeri kegiatan (halaman Galeri). "src" bisa: path ilustrasi bawaan,
      tautan gambar (URL), atau gambar unggahan dari Halaman Admin. */
   galeri: [

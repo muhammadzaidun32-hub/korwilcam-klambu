@@ -270,9 +270,13 @@
 
   // slide hero memakai 5 gambar pertama galeri (bisa diganti foto asli via Admin)
   const hsTrackEl = document.querySelector("#hs-track");
-  if (hsTrackEl && Array.isArray(cfg.galeri) && cfg.galeri.length > 0) {
-    hsTrackEl.innerHTML = cfg.galeri.slice(0, 5).map(function (g) {
-      return '<div class="hs-slide"><img src="' + escHtml(g.src || "") + '" alt="Foto/ilustrasi: ' + escHtml(g.judul || "") + '"></div>';
+  const heroSlidesCfg = (cfg.hero && Array.isArray(cfg.hero.slides)) ? cfg.hero.slides.filter(Boolean) : [];
+  const hsSrcs = heroSlidesCfg.length > 0
+    ? heroSlidesCfg
+    : (Array.isArray(cfg.galeri) ? cfg.galeri.slice(0, 5).map(function (g) { return g.src || ""; }).filter(Boolean) : []);
+  if (hsTrackEl && hsSrcs.length > 0) {
+    hsTrackEl.innerHTML = hsSrcs.map(function (src, i) {
+      return '<div class="hs-slide"><img src="' + escHtml(src) + '" alt="Latar belakang slide ' + (i + 1) + '"></div>';
     }).join("");
   }
 
