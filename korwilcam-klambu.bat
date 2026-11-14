@@ -7,7 +7,7 @@ REM ============================================================
 REM  GANTI "GANTI-USERNAME" DI BARIS BAWAH dengan username
 REM  GitHub Anda setelah membuat repositori, lalu simpan file ini.
 REM ============================================================
-set REMOTE=https://github.com/GANTI-USERNAME/korwilcam-klambu.git
+set REMOTE=https://github.com/muhammadzaidun32-hub/korwilcam-klambu.git
 
 echo ============================================
 echo   PUBLISH WEBSITE KORWILCAM KLAMBU
